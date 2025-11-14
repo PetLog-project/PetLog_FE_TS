@@ -2,17 +2,11 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   gap: 240px;
-  padding: 20px 32px;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
   position: relative;
-`;
-
-export const BackBtn = styled.div`
-  position: absolute;
-  top: 0;
 `;
 
 export const CodeSection = styled.section`

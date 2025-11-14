@@ -2,7 +2,6 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
 export const Main = styled.main`
-  padding: 20px 20px;
   gap: 28px;
   width: 100%;
   height: 100%;
@@ -11,7 +10,7 @@ export const Main = styled.main`
 `;
 export const PageTitleSection = styled.section`
   gap: 8px;
-  width: 60%;
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
