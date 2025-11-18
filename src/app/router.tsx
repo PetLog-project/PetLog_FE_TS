@@ -1,3 +1,4 @@
+import { Home } from "@/features/diary/home/ui/home";
 import { GroupEtry } from "@/features/groupEntry/ui/groupEntry";
 import { JoinGroup } from "@/features/joinGroup/ui/joinGroup";
 import { MakeGroup } from "@/features/makeGroup/ui/makeGroup/makeGroup";
@@ -20,5 +21,9 @@ export const router = createBrowserRouter([
   {
     path: "/setting",
     element: <Setting />,
+  },
+  {
+    path: "/diary",
+    element: <Home />,
   },
 ]);

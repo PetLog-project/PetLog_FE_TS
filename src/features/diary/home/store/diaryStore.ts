@@ -1,0 +1,32 @@
+import { create } from "zustand";
+
+export type DiaryType = {
+  writtenAt: Date;
+  diaryInfo: [
+    {
+      diaryId: number;
+      title: string;
+      image: string | null;
+    },
+  ];
+};
+
+type DiaryStoreType = {
+  allDiary: DiaryType[];
+  selectId: number;
+  setAllDiary: (arr: DiaryType[]) => void;
+  setSelectId: (id: number) => void;
+};
+
+export const useDiary = create<DiaryStoreType>((set) => ({
+  allDiary: [],
+  selectId: 0,
+  setAllDiary: (arr) =>
+    set(() => ({
+      allDiary: arr,
+    })),
+  setSelectId: (id) =>
+    set(() => ({
+      selectId: id,
+    })),
+}));
