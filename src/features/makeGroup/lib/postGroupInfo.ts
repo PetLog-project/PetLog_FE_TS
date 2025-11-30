@@ -4,6 +4,7 @@ import { formatDate } from "./formatDate";
 export async function postGroupInfo(
   petInfo: PetInfo,
   careInfo: CareFormType,
+  urls: string[],
   openModal: (warningMessage: string) => void,
 ) {
   try {
@@ -15,7 +16,7 @@ export async function postGroupInfo(
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        imageUrl: petInfo.imgUrl,
+        imageUrl: urls,
         name: petInfo.name,
         age: petInfo.age,
         weight: petInfo.weight,

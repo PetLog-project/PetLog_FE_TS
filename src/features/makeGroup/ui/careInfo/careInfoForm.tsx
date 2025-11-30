@@ -7,6 +7,7 @@ import { LastCareTime } from "./container/lastCareTime";
 import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
 import type { CareFormType } from "../../type";
 import { postGroupInfo } from "../../lib/postGroupInfo";
+import { getS3ImgUrl } from "@/shared/s3/getS3ImgUrl";
 
 export function CareInfoForm() {
   const { petInfo } = useForm();
@@ -29,6 +30,7 @@ export function CareInfoForm() {
     lastWateringTimeMinute: 0,
     note: null,
   });
+  const [urls, setUrls] = useState<string[]>([]);
 
   const isFilled = useMemo(
     () =>
@@ -94,7 +96,9 @@ export function CareInfoForm() {
           disabled={!(isFilled && isWarning)}
           onClick={(e) => {
             e.preventDefault();
-            postGroupInfo(petInfo, form, openModal);
+            getS3ImgUrl(petInfo.imgUrl, setUrls);
+            console.log(urls);
+            // postGroupInfo(petInfo, form, urls[0], openModal);
           }}
         >
           확인

@@ -10,7 +10,7 @@ type FormType = {
 
 export const useForm = create<FormType>((set) => ({
   petInfo: {
-    imgUrl: "",
+    imgUrl: null,
     name: "",
     age: "",
     weight: "",
