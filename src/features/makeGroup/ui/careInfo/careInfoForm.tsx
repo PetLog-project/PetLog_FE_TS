@@ -7,10 +7,12 @@ import { LastCareTime } from "./container/lastCareTime";
 import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
 import type { CareFormType } from "../../type";
 import { postGroupInfo } from "../../lib/postGroupInfo";
-import { getS3ImgUrl } from "@/shared/s3/getS3ImgUrl";
+import { handleS3ImgUrl } from "@/shared/s3/handleS3ImgUrl";
+import { useLogin } from "@/features/tempLogin/loginStore";
 
 export function CareInfoForm() {
   const { petInfo } = useForm();
+  const { acc, ref } = useLogin();
   const { openModal } = useWarningModal();
   const [disabled, setDisabled] = useState({
     feedingCycle: false,
@@ -30,7 +32,6 @@ export function CareInfoForm() {
     lastWateringTimeMinute: 0,
     note: null,
   });
-  const [urls, setUrls] = useState<string[]>([]);
 
   const isFilled = useMemo(
     () =>
@@ -94,11 +95,11 @@ export function CareInfoForm() {
       <s.BtnBox>
         <Button
           disabled={!(isFilled && isWarning)}
-          onClick={(e) => {
+          onClick={async (e) => {
             e.preventDefault();
-            getS3ImgUrl(petInfo.imgUrl, setUrls);
-            console.log(urls);
-            // postGroupInfo(petInfo, form, urls[0], openModal);
+            const url = await handleS3ImgUrl(petInfo.imgUrl, acc);
+
+            postGroupInfo(petInfo, form, url[0], acc, openModal);
           }}
         >
           확인

@@ -4,19 +4,20 @@ import { formatDate } from "./formatDate";
 export async function postGroupInfo(
   petInfo: PetInfo,
   careInfo: CareFormType,
-  urls: string[],
+  url: string,
+  acc: string,
   openModal: (warningMessage: string) => void,
 ) {
   try {
-    console.log(petInfo, careInfo);
-    const response = await fetch("/api/groups", {
-      //나중에 스웨거 오면 경로 수정
+    // console.log(petInfo, url, careInfo);
+    const response = await fetch("https://dev.petlog.site/api/groups", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${acc}`,
       },
       body: JSON.stringify({
-        imageUrl: urls,
+        imageUrl: url,
         name: petInfo.name,
         age: petInfo.age,
         weight: petInfo.weight,
