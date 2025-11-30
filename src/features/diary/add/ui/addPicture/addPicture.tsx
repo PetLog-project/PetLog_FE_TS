@@ -1,12 +1,9 @@
-import { useState } from "react";
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { Button } from "@/shared/button/button";
-import { useAddDiary, type ImgType } from "../../store/addStore";
-import { useLocation, useNavigate, useParams } from "react-router-dom";
-import { ImgEditor } from "@/shared/imgEditor/imgEditor";
+import { useLocation, useNavigate } from "react-router-dom";
 import * as s from "./style";
-
 import { useDiaryDetail } from "@/features/diary/detail/store/diaryDetailstore";
+import { ImgEditor } from "@/shared/imgEditor/ui/imgEditor";
 
 export function AddPicture() {
   const { diaryDetail } = useDiaryDetail();

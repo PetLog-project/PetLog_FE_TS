@@ -1,8 +1,10 @@
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import * as s from "./style";
-import { GetIcon } from "../getIcon/getIcon";
-import type { ImgType } from "@/features/diary/add/store/addStore";
+
 import { useAddImgs } from "@/features/diary/add/store/imgStore";
+import { handleAddFile } from "../lib/handleAddFile";
+import { initEditImgs } from "../lib/initEditImgs";
+import { GetIcon } from "@/shared/getIcon/getIcon";
 
 export function ImgEditor({
   currentPage,
@@ -17,7 +19,7 @@ export function ImgEditor({
 
   useEffect(() => {
     if (currentPage == "edit" && existingUrls && isInit == false) {
-      initEditImages(existingUrls, setImgs, setIsInit);
+      initEditImgs(existingUrls, setImgs, setIsInit);
     }
   }, [currentPage, existingUrls, isInit, setImgs, setIsInit]);
 
@@ -60,41 +62,4 @@ export function ImgEditor({
       </s.AddImgBox>
     </>
   );
-}
-
-function handleAddFile(
-  e: React.ChangeEvent<HTMLInputElement>,
-  setImgs: (img: ImgType) => void,
-) {
-  const fileList = e.target.files;
-
-  if (!fileList) {
-    return;
-  }
-
-  const newFiles = Array.from(fileList);
-  newFiles.forEach((file, idx) =>
-    setImgs({
-      id: `new-${Date.now()}-${idx}`,
-      file,
-      previewUrl: URL.createObjectURL(file),
-      status: "new",
-    }),
-  );
-}
-
-function initEditImages(
-  existingUrls: string[],
-  setImgs: (img: ImgType) => void,
-  setIsInit: (bool: boolean) => void,
-) {
-  existingUrls.forEach((url, idx) =>
-    setImgs({
-      id: `existing-${idx}`,
-      previewUrl: url,
-      status: "existing",
-      s3Url: url,
-    }),
-  );
-  setIsInit(true);
 }
