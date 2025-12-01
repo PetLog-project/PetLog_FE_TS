@@ -12,6 +12,9 @@ export const Modal = styled.div`
   align-items: center;
   background: var(--white, #fdfdfb);
   box-shadow: 0 0 15px 0 ${({ theme }) => theme.color.black_dimmed};
+
+  position: absolute;
+  top: 40%;
 `;
 
 export const Message = styled.p`
