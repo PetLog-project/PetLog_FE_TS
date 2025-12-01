@@ -17,7 +17,7 @@ export async function postGroupInfo(
         Authorization: `Bearer ${acc}`,
       },
       body: JSON.stringify({
-        imageUrl: url,
+        imageUrl: url == "" ? null : url,
         name: petInfo.name,
         age: petInfo.age,
         weight: petInfo.weight,
