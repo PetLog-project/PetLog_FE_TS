@@ -79,6 +79,11 @@ export function Home() {
             </s.ThumbnailBox>
           </s.DiariesByDate>
         ))}
+        {dieries.length == 0 && (
+          <s.EmptyTextDiv>
+            <p>🌱 반려동물의 성장을 기록해보세요 🌱</p>
+          </s.EmptyTextDiv>
+        )}
       </s.Diarysection>
     </s.Main>
   );

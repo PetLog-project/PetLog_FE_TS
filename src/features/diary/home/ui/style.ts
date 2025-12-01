@@ -19,6 +19,18 @@ export const Diarysection = styled.section`
   flex-direction: column;
 `;
 
+export const EmptyTextDiv = styled.div`
+  padding-top: 80%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  color: ${({ theme }) => theme.color.black};
+  font-size: ${({ theme }) => theme.font.heading_M};
+  font-weight: ${({ theme }) => theme.font.weightSemiBold};
+`;
+
 export const DiariesByDate = styled.section`
   margin-bottom: 20px;
 `;
