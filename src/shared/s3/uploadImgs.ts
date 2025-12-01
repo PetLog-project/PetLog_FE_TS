@@ -5,14 +5,14 @@ export async function uploadImgs(
   file: File,
   filePath: string,
 ) {
-  const res = await fetch(presignedUrl, {
+  const response = await fetch(presignedUrl, {
     method: "PUT",
     headers: {
       "Content-Type": file.type || "application/octet-stream",
     },
     body: file,
   });
-  if (!res.ok) {
+  if (!response.ok) {
     console.log("S3 업로드 실패");
   }
   return `${baseUrl}${filePath}`;

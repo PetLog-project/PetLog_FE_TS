@@ -1,6 +1,6 @@
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { useDiary } from "../store/diaryStore";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getAllDiary } from "../lib/getAllDiary";
 import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
 import { sortByDate } from "../lib/sortByDate";
@@ -15,8 +15,7 @@ import { login } from "@/features/tempLogin/login";
 export function Home() {
   const nav = useNavigate();
   const { setInitStore } = useAddImgs();
-  const { allDiary, setAllDiary, setSelectId, setGroupId, groupId } =
-    useDiary();
+  const { allDiary, setAllDiary, setGroupId, setDiaryId } = useDiary();
   const { openModal } = useWarningModal();
   const acc2 = localStorage.getItem("acc");
   // const { ref, acc, setLogin } = useLogin(); // 왜 스토어에 acc 없지..
@@ -51,13 +50,13 @@ export function Home() {
       <s.Diarysection>
         {dieries.map((arr) => (
           <s.DiariesByDate key={arr[0]}>
-            <s.Date>{arr[0].replaceAll("-", ".")}</s.Date>
+            <s.Date>{arr[0]}</s.Date>
             <s.ThumbnailBox>
               {arr[1][0].diaryInfo.map((obj) => (
                 <s.Thumbnail
                   key={obj.diaryId}
                   onClick={() => {
-                    setSelectId(obj.diaryId);
+                    setDiaryId(obj.diaryId);
                     nav(`/diary/:${obj.diaryId}`);
                   }}
                 >

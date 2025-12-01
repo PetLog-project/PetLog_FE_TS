@@ -13,27 +13,32 @@ export type DiaryType = {
 
 type DiaryStoreType = {
   allDiary: DiaryType[];
-  selectId: number;
   groupId: number;
-  setGroupId: (id: number) => void;
+  diaryId: number;
+  setDiaryId: (did: number) => void;
+  setGroupId: (gid: number) => void;
   setAllDiary: (arr: DiaryType[]) => void;
-  setSelectId: (id: number) => void;
+  initDiary: () => void;
 };
 
 export const useDiary = create<DiaryStoreType>((set) => ({
   allDiary: [],
-  selectId: 0,
   groupId: 0,
-  setGroupId: (id) =>
+  diaryId: 0,
+  setGroupId: (gid) =>
     set(() => ({
-      groupId: id,
+      groupId: gid,
+    })),
+  setDiaryId: (did) =>
+    set(() => ({
+      diaryId: did,
     })),
   setAllDiary: (arr) =>
     set(() => ({
       allDiary: arr,
     })),
-  setSelectId: (id) =>
+  initDiary: () =>
     set(() => ({
-      selectId: id,
+      allDiary: [],
     })),
 }));
