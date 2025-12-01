@@ -12,15 +12,18 @@ import { useDiary } from "../../home/store/diaryStore";
 import { deleteDiary } from "../lib/deleteDiary";
 export function DiaryDetail() {
   const { diaryDetail, setDiaryDetail } = useDiaryDetail();
-  const { groupId } = useDiary();
+  const { groupId, diaryId } = useDiary();
   const { isOpen, setIsOpen } = useModal();
   const diaryDate = dateToString(diaryDetail.writtenAt);
   const nav = useNavigate();
-  const diaryId = useParams().diaryId?.replace(":", "");
+  const acc = localStorage.getItem("acc");
 
   useEffect(() => {
-    getDetail(0, 0, setDiaryDetail);
-  }, [setDiaryDetail]);
+    if (!acc) {
+      return;
+    }
+    getDetail(groupId, Number(diaryId), setDiaryDetail, acc);
+  }, [acc, diaryId, groupId, setDiaryDetail]);
 
   return (
     <s.Main>
