@@ -1,3 +1,5 @@
+import type { NavigateFunction } from "react-router-dom";
+
 export async function addDiary(
   type: string,
   title: string,
@@ -8,6 +10,7 @@ export async function addDiary(
   acc: string,
   groupId: number,
   diaryId: number,
+  nav: NavigateFunction,
 ) {
   try {
     const response = await fetch(
@@ -28,9 +31,9 @@ export async function addDiary(
     );
     if (!response.ok) {
       openModal("전송 오류가 발생했습니다");
+    } else {
+      nav("/diary");
     }
-    const data = await response.json();
-    console.log(data);
   } catch (e) {
     console.log(e);
     openModal("전송 오류가 발생했습니다");

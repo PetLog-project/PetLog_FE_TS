@@ -13,7 +13,7 @@ export function AddPicture() {
     <s.Main>
       <BackButton
         onClick={() => {
-          nav(-1);
+          nav("/diary");
         }}
       >
         {""}

@@ -116,6 +116,7 @@ export function AddContent() {
                 acc,
                 groupId,
                 diaryId,
+                nav,
               );
             }}
             disabled={
