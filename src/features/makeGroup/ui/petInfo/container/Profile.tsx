@@ -25,23 +25,17 @@ export function Profile({
           type="file"
           id="file"
           onChange={(e) => {
-            if (e.target.files && e.target.files[0]) {
-              const file = e.target.files[0];
-              const reader = new FileReader();
-              reader.readAsDataURL(file);
-              reader.onloadend = () => {
-                if (reader.result) {
-                  setForm((prev) => {
-                    const newObj = { ...prev };
-                    if (reader.result) {
-                      newObj.imgUrl = reader.result.toString();
-                    }
-                    return newObj;
-                  });
-                  setImgUrl(reader.result.toString());
-                }
-              };
+            const value = e.target.files?.[0];
+            if (!value) {
+              return;
             }
+            const previewUrl = URL.createObjectURL(value);
+            setForm((prev) => {
+              const newObj = { ...prev };
+              newObj.imgUrl = value;
+              return newObj;
+            });
+            setImgUrl(previewUrl);
           }}
         />
       </div>

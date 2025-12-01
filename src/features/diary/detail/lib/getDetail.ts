@@ -3,10 +3,21 @@ export async function getDetail(
   groupId: number,
   diaryId: number,
   setDiaryDetail: (obj: DiaryDetailType) => void,
+  acc: string,
 ) {
   try {
-    const response = await fetch("/public/dum/diaryDetail.json");
+    const response = await fetch(
+      `https://dev.petlog.site/api/groups/${groupId}/diary/${diaryId}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${acc}`,
+        },
+      },
+    );
     const data = await response.json();
+    // console.log(response.ok);
     setDiaryDetail(data.data);
   } catch (e) {
     console.log(e);

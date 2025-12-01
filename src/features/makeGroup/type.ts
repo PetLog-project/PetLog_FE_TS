@@ -9,7 +9,7 @@ export type CareFormType = {
 };
 
 export type PetInfo = {
-  imgUrl?: string;
+  imgUrl: File | null;
   name: string;
   age: string;
   weight: string;

@@ -9,18 +9,30 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import { useNavigate } from "react-router-dom";
 import { useAddImgs } from "../../add/store/imgStore";
 import { getGroupId } from "@/shared/getGroupid/getGroupId";
+// import { useLogin } from "@/features/tempLogin/loginStore";
+// import { login } from "@/features/tempLogin/login";
+import { useModal } from "@/shared/baseModal/store/modalStroe";
 
 export function Home() {
   const nav = useNavigate();
+  const { setClose } = useModal();
   const { setInitStore } = useAddImgs();
-  const { allDiary, setAllDiary, setSelectId, setGroupId, groupId } =
-    useDiary();
+  const { allDiary, setAllDiary, setGroupId, setDiaryId } = useDiary();
   const { openModal } = useWarningModal();
+  const acc2 = localStorage.getItem("acc");
+  // const { ref, acc, setLogin } = useLogin(); // 왜 스토어에 acc 없지..
 
   useEffect(() => {
-    getGroupId(setGroupId);
-    getAllDiary(setAllDiary, openModal, groupId);
-  }, [groupId, openModal, setAllDiary, setGroupId]);
+    if (!acc2) {
+      return;
+    }
+    const getData = async () => {
+      const id = await getGroupId(setGroupId, acc2);
+      await getAllDiary(setAllDiary, openModal, id, acc2);
+    };
+    getData();
+    setClose();
+  }, [acc2, openModal, setAllDiary, setClose, setGroupId]);
 
   useEffect(() => {
     setInitStore();
@@ -41,13 +53,13 @@ export function Home() {
       <s.Diarysection>
         {dieries.map((arr) => (
           <s.DiariesByDate key={arr[0]}>
-            <s.Date>{arr[0].replaceAll("-", ".")}</s.Date>
+            <s.Date>{arr[0]}</s.Date>
             <s.ThumbnailBox>
               {arr[1][0].diaryInfo.map((obj) => (
                 <s.Thumbnail
                   key={obj.diaryId}
                   onClick={() => {
-                    setSelectId(obj.diaryId);
+                    setDiaryId(obj.diaryId);
                     nav(`/diary/:${obj.diaryId}`);
                   }}
                 >

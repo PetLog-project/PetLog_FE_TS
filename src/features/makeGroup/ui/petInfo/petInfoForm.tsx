@@ -18,7 +18,7 @@ export function PetInfoForm() {
     gender: false,
   });
   const [form, setForm] = useState<PetInfo>({
-    imgUrl: "",
+    imgUrl: null,
     name: "",
     age: "",
     weight: "",
@@ -33,7 +33,12 @@ export function PetInfoForm() {
     () =>
       Object.entries(form)
         .filter(([K]) => K !== "imgUrl")
-        .every(([_, v]) => v.trim() !== ""),
+        .every(([_, v]) => {
+          if (typeof v == "string") {
+            return v.trim() !== "";
+          }
+          return v !== null && v !== undefined;
+        }),
     [form],
   );
 
