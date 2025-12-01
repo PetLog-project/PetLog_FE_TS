@@ -15,6 +15,7 @@ import { useModal } from "@/shared/baseModal/store/modalStroe";
 
 export function Home() {
   const nav = useNavigate();
+  const { setClose } = useModal();
   const { setInitStore } = useAddImgs();
   const { allDiary, setAllDiary, setGroupId, setDiaryId } = useDiary();
   const { openModal } = useWarningModal();
@@ -30,7 +31,8 @@ export function Home() {
       await getAllDiary(setAllDiary, openModal, id, acc2);
     };
     getData();
-  }, [acc2, openModal, setAllDiary, setGroupId]);
+    setClose();
+  }, [acc2, openModal, setAllDiary, setClose, setGroupId]);
 
   useEffect(() => {
     setInitStore();

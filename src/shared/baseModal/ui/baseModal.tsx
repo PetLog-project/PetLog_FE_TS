@@ -11,26 +11,28 @@ export function BaseModal({
 }) {
   const { setClose } = useModal();
   return (
-    <s.Modal>
-      <s.Message>{message}</s.Message>
-      <s.BtnDiv>
-        <Button
-          color="gray"
-          onClick={() => {
-            setClose();
-          }}
-        >
-          닫기
-        </Button>
-        <Button
-          color="yellow"
-          onClick={() => {
-            onClick();
-          }}
-        >
-          확인
-        </Button>
-      </s.BtnDiv>
-    </s.Modal>
+    <s.Background>
+      <s.Modal>
+        <s.Message>{message}</s.Message>
+        <s.BtnDiv>
+          <Button
+            color="gray"
+            onClick={() => {
+              setClose();
+            }}
+          >
+            닫기
+          </Button>
+          <Button
+            color="yellow"
+            onClick={() => {
+              onClick();
+            }}
+          >
+            확인
+          </Button>
+        </s.BtnDiv>
+      </s.Modal>
+    </s.Background>
   );
 }
