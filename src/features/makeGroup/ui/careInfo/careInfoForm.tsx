@@ -97,7 +97,8 @@ export function CareInfoForm() {
           disabled={!(isFilled && isWarning)}
           onClick={async (e) => {
             e.preventDefault();
-            const url = await handleS3ImgUrl(petInfo.imgUrl, acc);
+            const imgArr = petInfo.imgUrl == null ? null : [petInfo.imgUrl];
+            const url = await handleS3ImgUrl(imgArr, acc, "PROFILE_IMAGE");
 
             postGroupInfo(petInfo, form, url[0], acc, openModal);
           }}

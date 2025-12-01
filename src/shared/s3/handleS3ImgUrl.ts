@@ -1,8 +1,12 @@
 import { makeFileName } from "../makeFileName/makeFileName";
-import { getPresignedUrl } from "./getPresignedUrl";
+import { getPresignedUrl, type FileType } from "./getPresignedUrl";
 import { uploadImgs } from "./uploadImgs";
 
-export async function handleS3ImgUrl(imgs: File | null, acc: string) {
+export async function handleS3ImgUrl(
+  imgs: null | File[],
+  acc: string,
+  type: FileType,
+) {
   const imgNames: string[] = [];
   if (imgs == null) {
     return [""];
@@ -17,11 +21,20 @@ export async function handleS3ImgUrl(imgs: File | null, acc: string) {
     imgNames.push(name);
   }
 
-  const presignedUrl = await getPresignedUrl("PROFILE_IMAGE", imgNames, acc);
+  const presignedUrl: PresignedUrlType[] = await getPresignedUrl(
+    type,
+    imgNames,
+    acc,
+  );
 
   return await Promise.all(
-    presignedUrl.map((x: { filePath: string; presignedUrl: string }) =>
-      uploadImgs(x.presignedUrl, imgs, x.filePath),
+    presignedUrl.map((x, idx) =>
+      uploadImgs(x.presignedUrl, imgs[idx], x.filePath),
     ),
   );
 }
+
+type PresignedUrlType = {
+  filePath: string;
+  presignedUrl: string;
+};
