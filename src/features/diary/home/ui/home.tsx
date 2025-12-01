@@ -1,6 +1,6 @@
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { useDiary } from "../store/diaryStore";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect } from "react";
 import { getAllDiary } from "../lib/getAllDiary";
 import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
 import { sortByDate } from "../lib/sortByDate";
@@ -9,8 +9,9 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import { useNavigate } from "react-router-dom";
 import { useAddImgs } from "../../add/store/imgStore";
 import { getGroupId } from "@/shared/getGroupid/getGroupId";
-import { useLogin } from "@/features/tempLogin/loginStore";
-import { login } from "@/features/tempLogin/login";
+// import { useLogin } from "@/features/tempLogin/loginStore";
+// import { login } from "@/features/tempLogin/login";
+import { useModal } from "@/shared/baseModal/store/modalStroe";
 
 export function Home() {
   const nav = useNavigate();

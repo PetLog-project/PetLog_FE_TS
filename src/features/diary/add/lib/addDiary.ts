@@ -7,10 +7,11 @@ export async function addDiary(
   openModal: (message: string) => void,
   acc: string,
   groupId: number,
+  diaryId: number,
 ) {
   try {
     const response = await fetch(
-      `https://dev.petlog.site/api/groups/${groupId}/diary`,
+      `https://dev.petlog.site/api/groups/${groupId}/diary${type == "edit" ? `/${diaryId}` : ""}`,
       {
         method: type == "add" ? "POST" : "PATCH",
         headers: {
@@ -25,7 +26,6 @@ export async function addDiary(
         }),
       },
     );
-
     if (!response.ok) {
       openModal("전송 오류가 발생했습니다");
     }

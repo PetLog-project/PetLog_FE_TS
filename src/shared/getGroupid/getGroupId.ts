@@ -1,5 +1,7 @@
+import type React from "react";
+
 export async function getGroupId(
-  setGroupId: (id: number) => void,
+  setGroupId: (gid: number) => void,
   acc: string,
 ) {
   try {

@@ -4,7 +4,7 @@ import { useDiaryDetail } from "../store/diaryDetailstore";
 import { getDetail } from "../lib/getDetail";
 import { dateToString } from "@/shared/DateToString/dateToString";
 import { Carousel } from "@/shared/carousel/carousel";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import * as s from "./style";
 import { useModal } from "@/shared/baseModal/store/modalStroe";
 import { BaseModal } from "@/shared/baseModal/ui/baseModal";
@@ -66,7 +66,11 @@ export function DiaryDetail() {
         <BaseModal
           message='"현재 일기를 삭제 하시겠습니까?"'
           onClick={() => {
-            deleteDiary(groupId, Number(diaryId));
+            if (!acc) {
+              return;
+            }
+            // console.log("a");
+            deleteDiary(groupId, Number(diaryId), acc, nav);
           }}
         />
       )}
