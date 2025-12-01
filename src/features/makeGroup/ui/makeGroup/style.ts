@@ -9,6 +9,7 @@ export const Main = styled.main`
   flex-direction: column;
 `;
 export const PageTitleSection = styled.section`
+  margin-top: 60px;
   gap: 8px;
   width: 100%;
   display: flex;

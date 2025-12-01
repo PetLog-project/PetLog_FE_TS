@@ -8,6 +8,7 @@ export const Main = styled.main`
 `;
 
 export const Ul = styled.ul`
+  margin-top: 60px;
   padding: 20px 32px 0 32px;
   gap: 32px;
   width: 100%;

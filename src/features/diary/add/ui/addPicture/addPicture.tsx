@@ -18,12 +18,14 @@ export function AddPicture() {
       >
         {""}
       </BackButton>
-      <section>
+      <s.AddSection>
         <s.HelperText>성장 일기에 사용할 사진을 추가해 주세요</s.HelperText>
-        <ImgEditor
-          currentPage={param == "adddiary" ? "add" : "edit"}
-          existingUrls={param == "adddiary" ? [] : diaryDetail.images}
-        />
+        <s.ImgDiv>
+          <ImgEditor
+            currentPage={param == "adddiary" ? "add" : "edit"}
+            existingUrls={param == "adddiary" ? [] : diaryDetail.images}
+          />
+        </s.ImgDiv>
         <s.BtnBox>
           <Button
             onClick={() => {
@@ -37,7 +39,7 @@ export function AddPicture() {
             다음
           </Button>
         </s.BtnBox>
-      </section>
+      </s.AddSection>
     </s.Main>
   );
 }

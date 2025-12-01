@@ -1,4 +1,3 @@
-import { theme } from "@/shared/styles/theme";
 import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
@@ -13,6 +12,7 @@ export const Main = styled.main`
 `;
 
 export const ContentSection = styled.section`
+  margin-top: 80px;
   gap: 40px;
   padding: 0 20px;
   width: 100%;

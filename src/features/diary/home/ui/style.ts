@@ -9,6 +9,7 @@ export const Main = styled.main`
 `;
 
 export const Diarysection = styled.section`
+  margin-top: 60px;
   gap: 20px;
   padding: 20px;
   width: 100%;

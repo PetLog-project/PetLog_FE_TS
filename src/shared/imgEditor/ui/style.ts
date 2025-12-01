@@ -3,7 +3,6 @@ import styled from "styled-components";
 
 export const AddImgBox = styled.div`
   gap: 24px;
-  margin-bottom: 52px;
   width: 368px;
   display: flex;
   flex-wrap: wrap;
