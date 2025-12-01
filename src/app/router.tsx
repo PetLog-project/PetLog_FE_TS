@@ -1,3 +1,7 @@
+import { AddContent } from "@/features/diary/add/ui/addContent/addContent";
+import { AddPicture } from "@/features/diary/add/ui/addPicture/addPicture";
+import { DiaryDetail } from "@/features/diary/detail/ui/diaryDetail";
+import { Home } from "@/features/diary/home/ui/home";
 import { GroupEtry } from "@/features/groupEntry/ui/groupEntry";
 import { JoinGroup } from "@/features/joinGroup/ui/joinGroup";
 import { MakeGroup } from "@/features/makeGroup/ui/makeGroup/makeGroup";
@@ -20,5 +24,29 @@ export const router = createBrowserRouter([
   {
     path: "/setting",
     element: <Setting />,
+  },
+  {
+    path: "/diary",
+    element: <Home />,
+  },
+  {
+    path: "diary/:diaryId",
+    element: <DiaryDetail />,
+  },
+  {
+    path: "adddiary/pictures",
+    element: <AddPicture />,
+  },
+  {
+    path: "adddiary/content",
+    element: <AddContent />,
+  },
+  {
+    path: "editdiary/pictures",
+    element: <AddPicture />,
+  },
+  {
+    path: "editdiary/content",
+    element: <AddContent />,
   },
 ]);
