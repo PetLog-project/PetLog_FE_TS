@@ -71,6 +71,7 @@ export function DiaryDetail() {
               if (!acc) {
                 return;
               }
+              // console.log("a");
               deleteDiary(groupId, Number(diaryId), acc, nav);
             }}
           />

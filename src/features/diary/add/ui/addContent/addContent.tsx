@@ -1,6 +1,6 @@
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { Carousel } from "@/shared/carousel/carousel";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/shared/button/button";
 import * as s from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -30,9 +30,7 @@ export function AddContent() {
     content: diaryDetail.content,
     writtenAt: diaryDetail.writtenAt,
   };
-  const [date, setDate] = useState<Date | string>(
-    currentPage == "edit" ? placeholder.writtenAt : new Date(),
-  );
+  const [date, setDate] = useState<Date | string>(new Date());
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const previewImgs = imgs.filter((x) => !x.isDeleted).map((x) => x.previewUrl);
@@ -71,7 +69,7 @@ export function AddContent() {
                 ref={calendarRef}
                 value={
                   currentPage == "edit"
-                    ? placeholder.writtenAt.replaceAll(".", "-")
+                    ? placeholder.writtenAt
                     : new Date().toISOString().split("T")[0]
                 }
                 onChange={(e) => {

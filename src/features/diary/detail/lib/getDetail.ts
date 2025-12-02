@@ -17,6 +17,7 @@ export async function getDetail(
       },
     );
     const data = await response.json();
+    // console.log(response.ok);
     setDiaryDetail(data.data);
   } catch (e) {
     console.log(e);
