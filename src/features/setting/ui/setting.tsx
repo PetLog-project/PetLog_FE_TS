@@ -52,61 +52,63 @@ export function Setting() {
   }, [acc]);
 
   return (
-    <s.Main>
-      <BackButton
-        onClick={() => {
-          nav(-1);
-        }}
-      >
-        설정
-      </BackButton>
-      <s.Ul>
-        <s.Li>
-          <p>알림 수신 여부</p>
-          <s.Toggle
-            $toggle={toggle}
+    <>
+      <s.Main>
+        <BackButton
+          onClick={() => {
+            nav(-1);
+          }}
+        >
+          설정
+        </BackButton>
+        <s.Ul>
+          <s.Li>
+            <p>알림 수신 여부</p>
+            <s.Toggle
+              $toggle={toggle}
+              onClick={() => {
+                if (!acc) {
+                  return;
+                }
+                setNotification(!toggle, openModal, acc);
+                setToggle((prev) => !prev);
+              }}
+            >
+              <div></div>
+            </s.Toggle>
+          </s.Li>
+          <s.Li
             onClick={() => {
               if (!acc) {
                 return;
               }
-              setNotification(!toggle, openModal, acc);
-              setToggle((prev) => !prev);
+              leaveGroup(openModal, acc, groupId, nav);
             }}
           >
-            <div></div>
-          </s.Toggle>
-        </s.Li>
-        <s.Li
+            그룹 나가기
+          </s.Li>
+          <s.Li
+            onClick={() => {
+              if (!acc) {
+                return;
+              }
+              logout(nav);
+            }}
+          >
+            로그 아웃
+          </s.Li>
+        </s.Ul>
+        <s.WithdrawBox
           onClick={() => {
-            setModalKey("leaveGroup");
-            setIsOpen();
+            if (!acc) {
+              return;
+            }
+            deleteAccount();
           }}
         >
-          그룹 나가기
-        </s.Li>
-        <s.Li
-          onClick={() => {
-            setModalKey("logout");
-            setIsOpen();
-          }}
-        >
-          로그 아웃
-        </s.Li>
-      </s.Ul>
-      <s.WithdrawBox
-        onClick={() => {
-          setModalKey("deleteAccount");
-          setIsOpen();
-        }}
-      >
-        탈퇴 하기
-      </s.WithdrawBox>
-      {isOpen && (
-        <BaseModal
-          message={modalMessage[modalKey].message}
-          onClick={modalMessage[modalKey].action}
-        />
-      )}
-    </s.Main>
+          탈퇴 하기
+        </s.WithdrawBox>
+      </s.Main>
+    </>
   );
 }

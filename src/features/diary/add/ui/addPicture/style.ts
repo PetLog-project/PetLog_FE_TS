@@ -1,4 +1,3 @@
-import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
 export const Main = styled.main`
