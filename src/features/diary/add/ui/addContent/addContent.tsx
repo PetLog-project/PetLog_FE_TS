@@ -1,6 +1,6 @@
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { Carousel } from "@/shared/carousel/carousel";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/shared/button/button";
 import * as s from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -69,7 +69,7 @@ export function AddContent() {
               value={
                 currentPage == "edit"
                   ? placeholder.writtenAt.replaceAll(".", "-")
-                  : new Date().toISOString().split("T")[0]
+                  : (date as string)
               }
               onChange={(e) => {
                 const value = e.target.value;
