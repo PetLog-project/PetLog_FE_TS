@@ -21,6 +21,7 @@ export const GlobalStyle = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.white};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background-color: ${({ theme }) => theme.color.white};
   }
   ul{
     list-style: none;

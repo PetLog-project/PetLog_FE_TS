@@ -10,36 +10,36 @@ export function AddPicture() {
   const nav = useNavigate();
   const param = useLocation().pathname.split("/")[1];
   return (
-    <>
-      <s.Main>
-        <BackButton
-          onClick={() => {
-            nav("/diary");
-          }}
-        >
-          {""}
-        </BackButton>
-        <section>
-          <s.HelperText>성장 일기에 사용할 사진을 추가해 주세요</s.HelperText>
+    <s.Main>
+      <BackButton
+        onClick={() => {
+          nav("/diary");
+        }}
+      >
+        {""}
+      </BackButton>
+      <s.AddSection>
+        <s.HelperText>성장 일기에 사용할 사진을 추가해 주세요</s.HelperText>
+        <s.ImgDiv>
           <ImgEditor
             currentPage={param == "adddiary" ? "add" : "edit"}
             existingUrls={param == "adddiary" ? [] : diaryDetail.images}
           />
-          <s.BtnBox>
-            <Button
-              onClick={() => {
-                nav(
-                  param == "editdiary"
-                    ? "/editdiary/content"
-                    : "/adddiary/content",
-                );
-              }}
-            >
-              다음
-            </Button>
-          </s.BtnBox>
-        </section>
-      </s.Main>
-    </>
+        </s.ImgDiv>
+        <s.BtnBox>
+          <Button
+            onClick={() => {
+              nav(
+                param == "editdiary"
+                  ? "/editdiary/content"
+                  : "/adddiary/content",
+              );
+            }}
+          >
+            다음
+          </Button>
+        </s.BtnBox>
+      </s.AddSection>
+    </s.Main>
   );
 }

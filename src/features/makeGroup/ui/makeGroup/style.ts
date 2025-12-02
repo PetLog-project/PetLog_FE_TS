@@ -4,11 +4,12 @@ import styled from "styled-components";
 export const Main = styled.main`
   gap: 28px;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 export const PageTitleSection = styled.section`
+  margin-top: 60px;
   gap: 8px;
   width: 100%;
   display: flex;
