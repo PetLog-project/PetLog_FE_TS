@@ -7,6 +7,9 @@ export const BackBtn = styled.div`
   height: 60px;
   display: flex;
   align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: ${({ theme }) => theme.color.white};
   cursor: pointer;
 `;
 

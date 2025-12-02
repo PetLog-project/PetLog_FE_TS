@@ -1,5 +1,16 @@
 import styled from "styled-components";
 
+export const Background = styled.div`
+  width: 100%;
+  height: 100%;
+  background-color: ${({ theme }) => theme.color.black_dimmed};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+`;
+
 export const Modal = styled.div`
   padding: 80px 20px 20px 20px;
   gap: 50px;

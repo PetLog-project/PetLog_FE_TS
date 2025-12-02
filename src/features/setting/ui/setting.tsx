@@ -9,13 +9,33 @@ import { BackButton } from "@/shared/backBtn/BackButton";
 import * as s from "./style";
 import { getNotification } from "../lib/getNotification";
 import { getGroupId } from "@/shared/getGroupid/getGroupId";
+import { useModal } from "@/shared/baseModal/store/modalStroe";
+import { BaseModal } from "@/shared/baseModal/ui/baseModal";
+
+type ModalKeyType = "deleteAccount" | "logout" | "leaveGroup";
 
 export function Setting() {
   const { openModal } = useWarningModal();
+  const { isOpen, setIsOpen } = useModal();
   const [toggle, setToggle] = useState(false);
   const nav = useNavigate();
   const acc = localStorage.getItem("acc");
   const [groupId, setGroupId] = useState(0);
+  const [modalKey, setModalKey] = useState<ModalKeyType>("deleteAccount");
+  const modalMessage = {
+    deleteAccount: {
+      message: "회원을 탈퇴 하시겠습니까?",
+      action: () => deleteAccount(),
+    },
+    logout: {
+      message: "로그아웃 하시겠습니까?",
+      action: () => logout(nav),
+    },
+    leaveGroup: {
+      message: "그룹을 나가시겠습니까?",
+      action: () => leaveGroup(openModal, acc ? acc : "", groupId, nav),
+    },
+  };
 
   useEffect(() => {
     if (!acc) {

@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const Main = styled.main`
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
 `;
 
 export const Ul = styled.ul`
+  margin-top: 60px;
   padding: 20px 32px 0 32px;
   gap: 32px;
   width: 100%;

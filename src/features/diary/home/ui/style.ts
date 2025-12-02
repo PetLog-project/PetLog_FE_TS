@@ -3,11 +3,14 @@ import styled from "styled-components";
 export const Main = styled.main`
   padding-bottom: 40px;
   width: 100%;
+  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 export const Diarysection = styled.section`
+  margin-top: 60px;
   gap: 20px;
   padding: 20px;
   width: 100%;
@@ -15,6 +18,18 @@ export const Diarysection = styled.section`
   display: flex;
   align-items: center;
   flex-direction: column;
+`;
+
+export const EmptyTextDiv = styled.div`
+  padding-top: 80%;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+
+  color: ${({ theme }) => theme.color.black};
+  font-size: ${({ theme }) => theme.font.heading_M};
+  font-weight: ${({ theme }) => theme.font.weightSemiBold};
 `;
 
 export const DiariesByDate = styled.section`

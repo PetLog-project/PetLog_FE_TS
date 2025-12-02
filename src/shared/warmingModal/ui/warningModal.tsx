@@ -10,18 +10,20 @@ export function WarningModal() {
   const path = useLocation().pathname;
 
   return (
-    <s.Modal>
-      <s.Message>{warningMessage}</s.Message>
-      <Button
-        onClick={() => {
-          if (path == "/makegroup") {
-            setStep("prev");
-          }
-          closeModal();
-        }}
-      >
-        닫기
-      </Button>
-    </s.Modal>
+    <s.Background>
+      <s.Modal>
+        <s.Message>{warningMessage}</s.Message>
+        <Button
+          onClick={() => {
+            if (path == "/makegroup") {
+              setStep("prev");
+            }
+            closeModal();
+          }}
+        >
+          닫기
+        </Button>
+      </s.Modal>
+    </s.Background>
   );
 }
