@@ -1,5 +1,4 @@
 import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge";
-import type React from "react";
 
 export async function getGroupId(
   setGroupId: (gid: number) => void,
@@ -22,10 +21,6 @@ export async function getGroupId(
           Authorization: `Bearer ${newToken}`,
         },
       });
-    }
-
-    if (!response.ok) {
-      console.log("전송 오류");
     }
 
     const data = await response.json();

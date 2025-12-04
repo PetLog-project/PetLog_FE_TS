@@ -2,7 +2,6 @@ import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge
 import type { NavigateFunction } from "react-router-dom";
 
 export async function leaveGroup(
-  openModal: (message: string) => void,
   acc: string,
   groupId: number,
   nav: NavigateFunction,
@@ -34,11 +33,8 @@ export async function leaveGroup(
       );
     }
 
-    if (!response.ok) {
-      openModal("전송 오류가 발생했습니다");
-    }
     nav("/groupentry");
   } catch (e) {
-    openModal("전송 오류가 발생했습니다");
+    console.log(e);
   }
 }

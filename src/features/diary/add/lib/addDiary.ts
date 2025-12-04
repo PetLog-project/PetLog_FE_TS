@@ -1,7 +1,4 @@
-import {
-  requestTokenRefresh,
-  sendToNative,
-} from "@/features/nativeBootstrap/lib/nativeBridge";
+import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge";
 import type { NavigateFunction } from "react-router-dom";
 
 export async function addDiary(
@@ -10,7 +7,6 @@ export async function addDiary(
   content: string,
   imgs: string[] | null,
   date: string,
-  openModal: (message: string) => void,
   acc: string,
   groupId: number,
   diaryId: number,
@@ -54,14 +50,8 @@ export async function addDiary(
         },
       );
     }
-
-    if (!response.ok) {
-      openModal("전송 오류가 발생했습니다");
-    } else {
-      nav("/diary");
-    }
+    nav("/diary");
   } catch (e) {
     console.log(e);
-    openModal("전송 오류가 발생했습니다");
   }
 }

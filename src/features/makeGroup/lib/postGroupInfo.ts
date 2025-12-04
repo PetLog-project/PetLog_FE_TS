@@ -7,7 +7,6 @@ export async function postGroupInfo(
   careInfo: CareFormType,
   url: string,
   acc: string,
-  openModal: (warningMessage: string) => void,
 ) {
   try {
     let response = await fetch("https://dev.petlog.site/api/groups", {
@@ -65,11 +64,7 @@ export async function postGroupInfo(
         }),
       });
     }
-
-    if (!response.ok) {
-      openModal("전송 오류가 발생했습니다");
-    }
   } catch (e) {
-    openModal("전송 오류가 발생했습니다");
+    console.log(e);
   }
 }

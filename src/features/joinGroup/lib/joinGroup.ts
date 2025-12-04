@@ -4,7 +4,6 @@ import type React from "react";
 export async function joinGroup(
   code: string,
   setIsReject: React.Dispatch<React.SetStateAction<boolean>>,
-  openModal: (message: string) => void,
   acc: string,
 ) {
   try {
@@ -38,6 +37,6 @@ export async function joinGroup(
       setIsReject(true);
     }
   } catch (e) {
-    openModal("전송 오류가 발생했습니다");
+    console.log(e);
   }
 }

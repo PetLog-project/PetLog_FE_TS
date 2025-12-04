@@ -37,10 +37,6 @@ export async function getPresignedUrl(
       });
     }
 
-    if (!response.ok) {
-      console.log("err");
-    }
-
     const data = await response.json();
     return data.data.presignedUrlItems;
   } catch (e) {

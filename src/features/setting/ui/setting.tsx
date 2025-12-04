@@ -1,5 +1,4 @@
 import { setNotification } from "../lib/setNotification";
-import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { useEffect, useState } from "react";
 import { leaveGroup } from "../lib/leaveGroup";
 import { useNavigate } from "react-router-dom";
@@ -15,7 +14,6 @@ import { sendToNative } from "@/features/nativeBootstrap/lib/nativeBridge";
 type ModalKeyType = "deleteAccount" | "logout" | "leaveGroup";
 
 export function Setting() {
-  const { openModal } = useWarningModal();
   const { isOpen, setIsOpen } = useModal();
   const [toggle, setToggle] = useState(false);
   const nav = useNavigate();
@@ -34,8 +32,7 @@ export function Setting() {
     },
     leaveGroup: {
       message: "그룹을 나가시겠습니까?",
-      action: () =>
-        leaveGroup(openModal, accessToken ? accessToken : "", groupId, nav),
+      action: () => leaveGroup(accessToken ? accessToken : "", groupId, nav),
     },
   };
 
@@ -43,8 +40,8 @@ export function Setting() {
     if (!accessToken) {
       return;
     }
-    getNotification(setToggle, openModal, accessToken);
-  }, [accessToken, openModal]);
+    getNotification(setToggle, accessToken);
+  }, [accessToken]);
 
   useEffect(() => {
     if (!accessToken) {
@@ -56,6 +53,7 @@ export function Setting() {
   return (
     <s.Main>
       <BackButton>설정</BackButton>
+
       <s.Ul>
         <s.Li>
           <p>알림 수신 여부</p>
@@ -65,7 +63,7 @@ export function Setting() {
               if (!accessToken) {
                 return;
               }
-              setNotification(!toggle, openModal, accessToken);
+              setNotification(!toggle, accessToken);
               setToggle((prev) => !prev);
             }}
           >

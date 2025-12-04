@@ -12,9 +12,6 @@ export async function uploadImgs(
     },
     body: file,
   });
-  if (!response.ok) {
-    console.log("S3 업로드 실패");
-  }
 
   return `${baseUrl}${filePath}`;
 }

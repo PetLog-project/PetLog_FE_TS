@@ -2,7 +2,6 @@ import { BackButton } from "@/shared/backBtn/BackButton";
 import { useDiary } from "../store/diaryStore";
 import { useEffect } from "react";
 import { getAllDiary } from "../lib/getAllDiary";
-import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { sortByDate } from "../lib/sortByDate";
 import * as s from "./style";
 import { GetIcon } from "@/shared/getIcon/getIcon";
@@ -17,7 +16,6 @@ export function Home() {
   const { setClose } = useModal();
   const { setInitStore } = useAddImgs();
   const { allDiary, setAllDiary, setGroupId, setDiaryId } = useDiary();
-  const { openModal } = useWarningModal();
   const { accessToken } = useNative();
 
   useEffect(() => {
@@ -26,11 +24,11 @@ export function Home() {
     }
     const getData = async () => {
       const id = await getGroupId(setGroupId, accessToken);
-      await getAllDiary(setAllDiary, openModal, id, accessToken);
+      await getAllDiary(setAllDiary, id, accessToken);
     };
     getData();
     setClose();
-  }, [accessToken, openModal, setAllDiary, setClose, setGroupId]);
+  }, [accessToken, setAllDiary, setClose, setGroupId]);
 
   useEffect(() => {
     setInitStore();
