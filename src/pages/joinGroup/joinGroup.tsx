@@ -2,7 +2,7 @@ import { Button } from "@/shared/button/button";
 import { useState } from "react";
 import * as s from "./style";
 import { BackButton } from "@/shared/backBtn/BackButton";
-import { joinGroup } from "../lib/joinGroup";
+import { joinGroup } from "../../features/joinGroup/lib/joinGroup";
 import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 
 export function JoinGroup() {
