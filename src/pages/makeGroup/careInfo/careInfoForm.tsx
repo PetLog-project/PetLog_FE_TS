@@ -5,7 +5,6 @@ import { CycleInput } from "./container/cycleInput";
 import { LastCareTime } from "./container/lastCareTime";
 import { handleS3ImgUrl } from "@/shared/s3/handleS3ImgUrl";
 import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
-import { sendToNative } from "@/features/nativeBootstrap/lib/nativeBridge";
 import { useForm } from "@/processes/groupEntry/store/formStore";
 import type { CareFormType } from "@/features/makeGroup/type";
 import { postGroupInfo } from "@/features/makeGroup/lib/postGroupInfo";
@@ -104,7 +103,6 @@ export function CareInfoForm() {
             );
 
             postGroupInfo(petInfo, form, url[0], accessToken);
-            sendToNative("ONBOARDING_FINISHED");
           }}
         >
           확인

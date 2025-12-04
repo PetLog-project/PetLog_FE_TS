@@ -1,4 +1,7 @@
-import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge";
+import {
+  requestTokenRefresh,
+  sendToNative,
+} from "@/features/nativeBootstrap/lib/nativeBridge";
 import type { CareFormType, PetInfo } from "../type";
 import { formatDate } from "./formatDate";
 
@@ -63,6 +66,10 @@ export async function postGroupInfo(
           note: careInfo.note,
         }),
       });
+    }
+
+    if (response.ok) {
+      sendToNative("ONBOARDING_FINISHED");
     }
   } catch (e) {
     console.log(e);
