@@ -3,8 +3,8 @@ import { CareInfoForm } from "../careInfo/careInfoForm";
 import { PetInfoForm } from "../petInfo/petInfoForm";
 import { useNavigate } from "react-router-dom";
 import * as s from "./style";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
-import { WarningModal } from "@/shared/warmingModal/ui/warningModal";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
+import { WarningModal } from "@/shared/warningModal/ui/warningModal";
 import { BackButton } from "@/shared/backBtn/BackButton";
 
 export function MakeGroup() {

@@ -5,7 +5,7 @@ import { Button } from "@/shared/button/button";
 import * as s from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dateToString } from "@/shared/DateToString/dateToString";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { addDiary } from "../../lib/addDiary";
 import { useAddImgs } from "../../store/imgStore";
 import { useDiaryDetail } from "@/features/diary/detail/store/diaryDetailstore";

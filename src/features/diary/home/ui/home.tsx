@@ -2,7 +2,7 @@ import { BackButton } from "@/shared/backBtn/BackButton";
 import { useDiary } from "../store/diaryStore";
 import { useEffect } from "react";
 import { getAllDiary } from "../lib/getAllDiary";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { sortByDate } from "../lib/sortByDate";
 import * as s from "./style";
 import { GetIcon } from "@/shared/getIcon/getIcon";

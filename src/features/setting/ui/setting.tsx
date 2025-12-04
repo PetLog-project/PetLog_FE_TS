@@ -1,5 +1,5 @@
 import { setNotification } from "../lib/setNotification";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { useEffect, useState } from "react";
 import { deleteAccount } from "../lib/deleteAccount";
 import { leaveGroup } from "../lib/leaveGroup";

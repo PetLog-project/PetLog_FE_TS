@@ -4,11 +4,12 @@ import * as s from "./style";
 import { Button } from "@/shared/button/button";
 import { CycleInput } from "./container/cycleInput";
 import { LastCareTime } from "./container/lastCareTime";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import type { CareFormType } from "../../type";
 import { postGroupInfo } from "../../lib/postGroupInfo";
 import { handleS3ImgUrl } from "@/shared/s3/handleS3ImgUrl";
 import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
+import { sendToNative } from "@/features/nativeBootstrap/lib/nativeBridge";
 
 export function CareInfoForm() {
   const { petInfo } = useForm();
@@ -105,6 +106,7 @@ export function CareInfoForm() {
             );
 
             postGroupInfo(petInfo, form, url[0], accessToken, openModal);
+            sendToNative("ONBOARDING_FINISHED");
           }}
         >
           확인

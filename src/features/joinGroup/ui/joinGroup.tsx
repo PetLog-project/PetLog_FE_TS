@@ -1,7 +1,7 @@
 import { Button } from "@/shared/button/button";
 import { useState } from "react";
-import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
-import { WarningModal } from "@/shared/warmingModal/ui/warningModal";
+import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
+import { WarningModal } from "@/shared/warningModal/ui/warningModal";
 import * as s from "./style";
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { useNavigate } from "react-router-dom";
