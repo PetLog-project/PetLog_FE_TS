@@ -6,13 +6,14 @@ import * as s from "./style";
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { useNavigate } from "react-router-dom";
 import { joinGroup } from "../lib/joinGroup";
+import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 
 export function JoinGroup() {
   const { openModal, isOpen } = useWarningModal();
   const [isReject, setIsReject] = useState(false);
   const [code, setCode] = useState("");
   const nav = useNavigate();
-  const acc = localStorage.getItem("acc");
+  const { accessToken } = useNative();
 
   return (
     <s.Main>
@@ -44,11 +45,11 @@ export function JoinGroup() {
         <Button
           disabled={false}
           onClick={() => {
-            if (!acc) {
+            if (!accessToken) {
               return;
             }
             setIsReject(false);
-            joinGroup(code, setIsReject, openModal, acc);
+            joinGroup(code, setIsReject, openModal, accessToken);
           }}
         >
           확인

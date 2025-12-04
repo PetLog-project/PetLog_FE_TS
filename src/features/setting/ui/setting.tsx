@@ -11,6 +11,7 @@ import { getNotification } from "../lib/getNotification";
 import { getGroupId } from "@/shared/getGroupid/getGroupId";
 import { BaseModal } from "@/shared/baseModal/ui/baseModal";
 import { useModal } from "@/shared/baseModal/store/modalStroe";
+import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 
 type ModalKeyType = "deleteAccount" | "logout" | "leaveGroup";
 
@@ -19,7 +20,8 @@ export function Setting() {
   const { isOpen, setIsOpen } = useModal();
   const [toggle, setToggle] = useState(false);
   const nav = useNavigate();
-  const acc = localStorage.getItem("acc");
+  const { accessToken } = useNative();
+
   const [groupId, setGroupId] = useState(0);
   const [modalKey, setModalKey] = useState<ModalKeyType>("deleteAccount");
   const modalMessage = {
@@ -33,23 +35,24 @@ export function Setting() {
     },
     leaveGroup: {
       message: "그룹을 나가시겠습니까?",
-      action: () => leaveGroup(openModal, acc ? acc : "", groupId, nav),
+      action: () =>
+        leaveGroup(openModal, accessToken ? accessToken : "", groupId, nav),
     },
   };
 
   useEffect(() => {
-    if (!acc) {
+    if (!accessToken) {
       return;
     }
-    getNotification(setToggle, openModal, acc);
-  }, [acc, openModal]);
+    getNotification(setToggle, openModal, accessToken);
+  }, [accessToken, openModal]);
 
   useEffect(() => {
-    if (!acc) {
+    if (!accessToken) {
       return;
     }
-    getGroupId(setGroupId, acc);
-  }, [acc]);
+    getGroupId(setGroupId, accessToken);
+  }, [accessToken]);
 
   return (
     <s.Main>
@@ -66,10 +69,10 @@ export function Setting() {
           <s.Toggle
             $toggle={toggle}
             onClick={() => {
-              if (!acc) {
+              if (!accessToken) {
                 return;
               }
-              setNotification(!toggle, openModal, acc);
+              setNotification(!toggle, openModal, accessToken);
               setToggle((prev) => !prev);
             }}
           >

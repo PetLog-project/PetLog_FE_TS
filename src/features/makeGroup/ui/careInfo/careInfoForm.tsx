@@ -8,11 +8,11 @@ import { useWarningModal } from "@/shared/warmingModal/store/warningModalStore";
 import type { CareFormType } from "../../type";
 import { postGroupInfo } from "../../lib/postGroupInfo";
 import { handleS3ImgUrl } from "@/shared/s3/handleS3ImgUrl";
-import { useLogin } from "@/features/tempLogin/loginStore";
+import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 
 export function CareInfoForm() {
   const { petInfo } = useForm();
-  const { acc, ref } = useLogin();
+  const { accessToken } = useNative();
   const { openModal } = useWarningModal();
   const [disabled, setDisabled] = useState({
     feedingCycle: false,
@@ -98,9 +98,13 @@ export function CareInfoForm() {
           onClick={async (e) => {
             e.preventDefault();
             const imgArr = petInfo.imgUrl == null ? null : [petInfo.imgUrl];
-            const url = await handleS3ImgUrl(imgArr, acc, "PROFILE_IMAGE");
+            const url = await handleS3ImgUrl(
+              imgArr,
+              accessToken,
+              "PROFILE_IMAGE",
+            );
 
-            postGroupInfo(petInfo, form, url[0], acc, openModal);
+            postGroupInfo(petInfo, form, url[0], accessToken, openModal);
           }}
         >
           확인
