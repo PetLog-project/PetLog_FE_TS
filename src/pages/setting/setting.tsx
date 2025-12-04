@@ -1,15 +1,15 @@
-import { setNotification } from "../lib/setNotification";
 import { useEffect, useState } from "react";
-import { leaveGroup } from "../lib/leaveGroup";
 import { useNavigate } from "react-router-dom";
 import { BackButton } from "@/shared/backBtn/BackButton";
 import * as s from "./style";
-import { getNotification } from "../lib/getNotification";
 import { getGroupId } from "@/shared/getGroupid/getGroupId";
 import { BaseModal } from "@/shared/baseModal/ui/baseModal";
 import { useModal } from "@/shared/baseModal/store/modalStroe";
 import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 import { sendToNative } from "@/features/nativeBootstrap/lib/nativeBridge";
+import { leaveGroup } from "@/features/setting/lib/leaveGroup";
+import { setNotification } from "@/features/setting/lib/setNotification";
+import { getNotification } from "@/features/setting/lib/getNotification";
 
 type ModalKeyType = "deleteAccount" | "logout" | "leaveGroup";
 

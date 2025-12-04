@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import type { PetInfo } from "../type";
+import type { PetInfo } from "@/features/makeGroup/type";
 
 type FormType = {
   petInfo: PetInfo;
