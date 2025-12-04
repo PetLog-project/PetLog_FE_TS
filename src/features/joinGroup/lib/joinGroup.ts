@@ -1,4 +1,7 @@
-import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge";
+import {
+  requestTokenRefresh,
+  sendToNative,
+} from "@/features/nativeBootstrap/lib/nativeBridge";
 import type React from "react";
 
 export async function joinGroup(
@@ -35,6 +38,8 @@ export async function joinGroup(
 
     if (!response.ok) {
       setIsReject(true);
+    } else {
+      sendToNative("ONBOARDING_FINISHED");
     }
   } catch (e) {
     console.log(e);
