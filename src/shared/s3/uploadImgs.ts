@@ -12,6 +12,9 @@ export async function uploadImgs(
     },
     body: file,
   });
+  if (!response.ok) {
+    console.log("s3 업로드에 실패했습니다");
+  }
 
   return `${baseUrl}${filePath}`;
 }
