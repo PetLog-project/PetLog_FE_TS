@@ -1,0 +1,15 @@
+{
+  "statusCode": 200,
+  "message": "일기 상세 조회에 성공하였습니다.",
+  "data": {
+    "title": "여름이의 성장",
+    "content": "오늘은 여름이가 놀았다.",
+    "images": [
+      "https://images.stockcake.com/public/9/0/0/900ca585-62ce-44f5-8345-85faaa60a0b0_large/amused-monkey-face-stockcake.jpg",
+      "https://c.files.bbci.co.uk/32c8/live/8ab8d810-bf51-11ee-a5c6-319f8a960f8f.jpg",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSypjcmK_-nhz59WyB9GB8tslwsiTNYXpbxrQ&s"
+    ],
+    "writtenAt": "2025.05.01",
+    "writerName": "서은"
+  }
+}

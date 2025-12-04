@@ -1,0 +1,15 @@
+export { default as DefaultProfile } from "@/assets/defaultProfile.svg?react";
+export { default as Female } from "@/assets/female.svg?react";
+export { default as Male } from "@/assets/male.svg?react";
+export { default as PrevBtn } from "@/assets/prevBtn.svg?react";
+export { default as Key } from "@/assets/key.svg?react";
+export { default as Group } from "@/assets/group.svg?react";
+export { default as RightArrow } from "@/assets/rightArrow.svg?react";
+export { default as DefaultIcon } from "@/assets/defaultIcon.svg?react";
+export { default as AddPicture } from "@/assets/addPicture.svg?react";
+export { default as DeleteBtn } from "@/assets/delete.svg?react";
+export { default as Calendar } from "@/assets/calendar.svg?react";
+export { default as Notice } from "@/assets/notice.svg?react";
+export { default as Invite } from "@/assets/invite.svg?react";
+export { default as Setting } from "@/assets/setting.svg?react";
+export { default as Pets } from "@/assets/pets.svg?react";
