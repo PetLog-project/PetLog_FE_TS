@@ -1,10 +1,6 @@
 import { requestTokenRefresh } from "@/features/nativeBootstrap/lib/nativeBridge";
 
-export async function setNotification(
-  toggleResult: boolean,
-  openModal: (message: string) => void,
-  acc: string,
-) {
+export async function setNotification(toggleResult: boolean, acc: string) {
   try {
     let response = await fetch("https://dev.petlog.site/api/notification", {
       method: "PUT",
@@ -31,11 +27,7 @@ export async function setNotification(
         }),
       });
     }
-
-    if (!response.ok) {
-      openModal("전송 오류가 발생했습니다");
-    }
   } catch (e) {
-    openModal("전송 오류가 발생했습니다");
+    console.log(e);
   }
 }

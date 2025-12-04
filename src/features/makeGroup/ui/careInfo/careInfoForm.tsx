@@ -4,7 +4,6 @@ import * as s from "./style";
 import { Button } from "@/shared/button/button";
 import { CycleInput } from "./container/cycleInput";
 import { LastCareTime } from "./container/lastCareTime";
-import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import type { CareFormType } from "../../type";
 import { postGroupInfo } from "../../lib/postGroupInfo";
 import { handleS3ImgUrl } from "@/shared/s3/handleS3ImgUrl";
@@ -14,7 +13,6 @@ import { sendToNative } from "@/features/nativeBootstrap/lib/nativeBridge";
 export function CareInfoForm() {
   const { petInfo } = useForm();
   const { accessToken } = useNative();
-  const { openModal } = useWarningModal();
   const [disabled, setDisabled] = useState({
     feedingCycle: false,
     lastFeedingTimeHour: false,
@@ -105,7 +103,7 @@ export function CareInfoForm() {
               "PROFILE_IMAGE",
             );
 
-            postGroupInfo(petInfo, form, url[0], accessToken, openModal);
+            postGroupInfo(petInfo, form, url[0], accessToken);
             sendToNative("ONBOARDING_FINISHED");
           }}
         >

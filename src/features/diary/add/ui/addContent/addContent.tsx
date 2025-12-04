@@ -5,7 +5,6 @@ import { Button } from "@/shared/button/button";
 import * as s from "./style";
 import { useLocation, useNavigate } from "react-router-dom";
 import { dateToString } from "@/shared/DateToString/dateToString";
-import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
 import { addDiary } from "../../lib/addDiary";
 import { useAddImgs } from "../../store/imgStore";
 import { useDiaryDetail } from "@/features/diary/detail/store/diaryDetailstore";
@@ -21,7 +20,6 @@ export function AddContent() {
   const { imgs } = useAddImgs();
   const { diaryDetail } = useDiaryDetail();
   const { groupId, diaryId } = useDiary();
-  const { openModal } = useWarningModal();
   const { accessToken } = useNative();
   const calendarRef = useRef<HTMLInputElement | null>(null);
   const nav = useNavigate();
@@ -44,6 +42,7 @@ export function AddContent() {
   return (
     <s.Main>
       <BackButton>{""}</BackButton>
+
       <s.ContentSection>
         {imgs.length !== 0 && <Carousel imgs={previewImgs} width={200} />}
         <s.TitleBox>
@@ -116,7 +115,7 @@ export function AddContent() {
                 handleInput(content, placeholder.content, currentPage),
                 finalImgArr ? finalImgArr : null,
                 formatYYYYMMDD(date),
-                openModal,
+
                 accessToken,
                 groupId,
                 diaryId,

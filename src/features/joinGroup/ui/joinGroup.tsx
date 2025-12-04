@@ -1,14 +1,11 @@
 import { Button } from "@/shared/button/button";
 import { useState } from "react";
-import { useWarningModal } from "@/shared/warningModal/store/warningModalStore";
-import { WarningModal } from "@/shared/warningModal/ui/warningModal";
 import * as s from "./style";
 import { BackButton } from "@/shared/backBtn/BackButton";
 import { joinGroup } from "../lib/joinGroup";
 import { useNative } from "@/features/nativeBootstrap/store/wkwebviewStore";
 
 export function JoinGroup() {
-  const { openModal, isOpen } = useWarningModal();
   const [isReject, setIsReject] = useState(false);
   const [code, setCode] = useState("");
   const { accessToken } = useNative();
@@ -16,7 +13,6 @@ export function JoinGroup() {
   return (
     <s.Main>
       <BackButton>뒤로 가기</BackButton>
-      {isOpen && <WarningModal />}
       <s.CodeSection>
         <s.Title>그룹원에게 받은 초대 코드를 입력해 주세요</s.Title>
         <s.InputBox>
@@ -41,7 +37,7 @@ export function JoinGroup() {
               return;
             }
             setIsReject(false);
-            joinGroup(code, setIsReject, openModal, accessToken);
+            joinGroup(code, setIsReject, accessToken);
           }}
         >
           확인

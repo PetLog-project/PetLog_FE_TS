@@ -8,7 +8,7 @@ import { BackButton } from "@/shared/backBtn/BackButton";
 
 export function MakeGroup() {
   const { step, setStep } = useForm();
-  const { isOpen } = useWarningModal();
+  const { isWarningModalOpen } = useWarningModal();
   const pageInfoText = ["반려동물 기본 정보", "케어 정보"];
 
   return (
@@ -29,7 +29,7 @@ export function MakeGroup() {
           </s.Notice>
         </s.TextSection>
       </s.PageTitleSection>
-      {isOpen && <WarningModal />}
+      {isWarningModalOpen && <WarningModal />}
       {step === 1 ? <PetInfoForm /> : <CareInfoForm />}
     </s.Main>
   );
