@@ -17,7 +17,7 @@ export function BaseModal({
   return (
     <s.Background>
       <s.Modal>
-        {`${currentPath}, ${nativeRoute}`}
+        <p>{`${currentPath}, ${nativeRoute}`}</p>
         <s.Message>{message}</s.Message>
         <s.BtnDiv>
           <Button
