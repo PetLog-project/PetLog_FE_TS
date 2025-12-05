@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Form = styled.form`
-  padding: 50px 50px 0 50px;
+  padding: 5vh 5vh 0 5vh;
   width: 100%;
   height: 100%;
   display: flex;
@@ -12,7 +12,7 @@ export const Form = styled.form`
 `;
 
 export const InputSection = styled.section`
-  gap: 40px;
+  gap: 10vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -20,17 +20,16 @@ export const InputSection = styled.section`
 `;
 
 export const Section = styled.section`
-  gap: 24px;
-  width: 340px;
+  gap: 5vw;
+  width: 85vw;
   display: flex;
   flex-direction: column;
 `;
 
 export const InputBox = styled.div`
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 2vw;
+  padding: 2vw 3vw;
   width: 100%;
-  height: 75px;
   border: 1px solid ${({ theme }) => theme.color.gray_4};
   border-radius: 10px;
   display: flex;
@@ -43,7 +42,7 @@ export const InputInfoBox = styled.div`
   justify-content: space-between;
 
   span {
-    margin-left: 4px;
+    margin-left: 1vw;
     color: ${({ theme }) => theme.color.red};
   }
 `;
@@ -61,7 +60,7 @@ export const Description = styled.p`
 `;
 
 export const TimeBox = styled.div`
-  gap: 4px;
+  gap: 3vw;
   display: flex;
   align-items: center;
 
@@ -72,10 +71,16 @@ export const TimeBox = styled.div`
   }
 `;
 
+export const TimeDiv = styled.div`
+  gap: 1vw;
+  display: flex;
+  align-items: center;
+`;
+
 export const Input = styled.input`
-  padding: 8px;
-  width: 32px;
-  height: 20px;
+  padding: 2vw;
+  width: 8vw;
+  height: 2vh;
   border: none;
   border-radius: 5px;
   display: flex;
@@ -89,9 +94,9 @@ export const Input = styled.input`
 `;
 
 export const Note = styled.textarea`
-  padding: 16px;
-  width: 300px;
-  height: 200px;
+  padding: 4vw;
+  width: 75vw;
+  height: 22vh;
   border: none;
   border-radius: 10px;
   background-color: ${({ theme }) => theme.color.gray_1};

@@ -10,6 +10,7 @@ import { useAddImgs } from "@/processes/diary/store/imgStore";
 import { getAllDiary } from "@/features/diary/home/lib/getAllDiary";
 import { sortByDate } from "@/features/diary/home/lib/sortByDate";
 import { useDiary } from "@/processes/diary/store/diaryStore";
+import { truncate } from "@/features/diary/home/lib/truncate";
 
 export function Home() {
   const nav = useNavigate();
@@ -69,7 +70,7 @@ export function Home() {
                       <div></div>
                     </s.ImgBox>
                   )}
-                  <s.Title>{obj.title}</s.Title>
+                  <s.Title>{truncate(obj.title)}</s.Title>
                 </s.Thumbnail>
               ))}
             </s.ThumbnailBox>

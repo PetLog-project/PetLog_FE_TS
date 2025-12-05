@@ -22,31 +22,33 @@ export function LastCareTime(props: Props) {
         </s.Description>
       </s.InputInfoBox>
       <s.TimeBox>
-        <s.Input
-          maxLength={2}
-          type="text"
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            handleForm(hour, value, setForm);
-            handleOnChange(hour, value, setDisabled);
-          }}
-        />
-        <span>:</span>
-        <s.Input
-          maxLength={2}
-          type="text"
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            handleForm(minute, value, setForm);
-            handleOnChange(minute, value, setDisabled);
-          }}
-        />
+        <s.TimeDiv>
+          <s.Input
+            maxLength={2}
+            type="text"
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              handleForm(hour, value, setForm);
+              handleOnChange(hour, value, setDisabled);
+            }}
+          />
+          <span>:</span>
+          <s.Input
+            maxLength={2}
+            type="text"
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              handleForm(minute, value, setForm);
+              handleOnChange(minute, value, setDisabled);
+            }}
+          />
+        </s.TimeDiv>
+        {(disabled[hour] || disabled[minute]) && (
+          <s.WarningMassage>
+            해당 항목은 비워두거나 한글을 입력할 수 없습니다
+          </s.WarningMassage>
+        )}
       </s.TimeBox>
-      {(disabled[hour] || disabled[minute]) && (
-        <s.WarningMassage>
-          해당 항목은 비워두거나 한글을 입력할 수 없습니다
-        </s.WarningMassage>
-      )}
     </s.InputBox>
   );
 }

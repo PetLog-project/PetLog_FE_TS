@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  gap: 20px;
-  padding: 20px 32px;
+  gap: 5vw;
+  padding: 5vw 8vw;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -17,16 +17,16 @@ export const Title = styled.p`
 `;
 
 export const ChoiceSection = styled.section`
-  gap: 40px;
+  gap: 10vw;
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
 export const Choice = styled.div`
-  padding: 20px;
+  padding: 5vw;
   width: 100%;
-  height: 96px;
+  height: 10vh;
   border: 1px solid ${({ theme }) => theme.color.gray_4};
   border-radius: 20px;
   display: flex;
@@ -36,13 +36,13 @@ export const Choice = styled.div`
 `;
 
 export const TextSection = styled.div`
-  gap: 8px;
+  gap: 2vw;
   display: flex;
   flex-direction: column;
 `;
 
 export const ChoiceTitle = styled.div`
-  gap: 12px;
+  gap: 3vw;
   display: flex;
 
   p {

@@ -12,10 +12,10 @@ export const Background = styled.div`
 `;
 
 export const Modal = styled.div`
-  padding: 80px 20px 20px 20px;
-  gap: 50px;
-  width: 320px;
-  height: 220px;
+  padding: 9vh 5vw 5vw 5vw;
+  gap: 12vw;
+  width: 80vw;
+  height: 24vh;
   border: 1px solid ${({ theme }) => theme.color.black};
   border-radius: 20px;
   display: flex;

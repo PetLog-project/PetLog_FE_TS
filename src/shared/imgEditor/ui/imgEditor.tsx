@@ -26,39 +26,41 @@ export function ImgEditor({
   return (
     <>
       <s.AddImgBox>
-        {imgs
-          .filter((img) => !img.isDeleted)
-          .map((img) => (
-            <s.ImgBox key={img.id}>
-              <s.DeleteBtn
-                name="DeleteBtn"
-                width={24}
-                stroke="#1E1E1E"
-                onClick={() => {
-                  deleteImg(img.id);
-                }}
-              />
-              <s.Img src={img.previewUrl} alt="" />
-            </s.ImgBox>
-          ))}
-        <div>
-          <s.InputFile
-            type="file"
-            ref={inputRef}
-            onChange={(e) => {
-              handleAddFile(e, setImgs);
-            }}
-          />
-          {imgNum < 6 && (
-            <s.EmptyImg
-              onClick={() => {
-                inputRef.current?.click();
+        <s.SortDiv>
+          {imgs
+            .filter((img) => !img.isDeleted)
+            .map((img) => (
+              <s.ImgBox key={img.id}>
+                <s.DeleteBtn
+                  name="DeleteBtn"
+                  width={24}
+                  stroke="#1E1E1E"
+                  onClick={() => {
+                    deleteImg(img.id);
+                  }}
+                />
+                <s.Img src={img.previewUrl} alt="" />
+              </s.ImgBox>
+            ))}
+          <div>
+            <s.InputFile
+              type="file"
+              ref={inputRef}
+              onChange={(e) => {
+                handleAddFile(e, setImgs);
               }}
-            >
-              <GetIcon name="AddPicture" width={36} />
-            </s.EmptyImg>
-          )}
-        </div>
+            />
+            {imgNum < 6 && (
+              <s.EmptyImg
+                onClick={() => {
+                  inputRef.current?.click();
+                }}
+              >
+                <GetIcon name="AddPicture" width={36} />
+              </s.EmptyImg>
+            )}
+          </div>
+        </s.SortDiv>
       </s.AddImgBox>
     </>
   );
