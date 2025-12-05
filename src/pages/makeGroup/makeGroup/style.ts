@@ -2,15 +2,15 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
 export const Main = styled.main`
-  gap: 28px;
+  gap: 7vw;
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column;
 `;
 export const PageTitleSection = styled.section`
-  margin-top: 60px;
-  gap: 8px;
+  margin-top: 7vh;
+  gap: 2vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -21,7 +21,7 @@ export const BackBtn = styled(GetIcon)`
 `;
 
 export const TextSection = styled.div`
-  gap: 8px;
+  gap: 2vw;
   display: flex;
   flex-direction: column;
 `;
@@ -33,7 +33,7 @@ export const Title = styled.p`
 `;
 
 export const Notice = styled.p`
-  padding-left: 36px;
+  padding-left: 9vw;
   color: ${({ theme }) => theme.color.gray_4};
   font-size: ${({ theme }) => theme.font.body_XS};
   font-weight: ${({ theme }) => theme.font.weightRegular};

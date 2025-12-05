@@ -9,9 +9,9 @@ export const Main = styled.main`
 `;
 
 export const DiarySection = styled.section`
-  margin-top: 60px;
-  padding: 60px 20px;
-  gap: 80px;
+  margin-top: 7vh;
+  padding: 15vw 5vw;
+  gap: 20vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -29,7 +29,7 @@ export const TitleBox = styled.div`
 `;
 
 export const ActionBox = styled.div`
-  gap: 20px;
+  gap: 5vw;
   display: flex;
 
   color: ${({ theme }) => theme.color.gray_4};
@@ -42,7 +42,7 @@ export const ActionBox = styled.div`
 `;
 
 export const DateText = styled.p`
-  margin: 8px 0 20px 0;
+  margin: 2vw 0 5vw 0;
   color: ${({ theme }) => theme.color.gray_4};
   font-size: ${({ theme }) => theme.font.body_M};
   font-weight: ${({ theme }) => theme.font.weightRegular};

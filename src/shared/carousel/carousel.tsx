@@ -3,7 +3,7 @@ import type { EmblaOptionsType } from "embla-carousel";
 import * as s from "./style";
 import { useDotBtn } from "./dotBtn";
 
-export function Carousel(props: { imgs: string[]; width: number }) {
+export function Carousel(props: { imgs: string[]; width: string }) {
   const { imgs, width } = props;
   const options: EmblaOptionsType = {};
   const [emblaRef, emblaApi] = useEmblaCarousel(options);

@@ -2,8 +2,8 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
 export const Main = styled.main`
-  padding: 0 20px 0 20px;
-  gap: 40px;
+  padding: 0 5vw 5vw 5vw;
+  gap: 4vh;
   width: 100%;
   height: 100vh;
   display: flex;
@@ -14,8 +14,8 @@ export const Main = styled.main`
 `;
 
 export const ContentSection = styled.section`
-  margin-top: 80px;
-  gap: 40px;
+  margin-top: 9vh;
+  gap: 4vh;
   padding: 0 20px;
   width: 100%;
   display: flex;
@@ -24,15 +24,15 @@ export const ContentSection = styled.section`
 `;
 
 export const TitleBox = styled.div`
-  gap: 8px;
-  padding: 0 12px;
+  gap: 1vh;
+  padding: 0 3vw;
   width: 100%;
   display: flex;
   flex-direction: column;
 `;
 
-export const Div = styled.div`
-  padding: 20px 0;
+export const TitleDiv = styled.div`
+  padding: 2vh 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -72,8 +72,8 @@ export const Date = styled.p`
 
 export const Content = styled.textarea`
   padding: 12px;
-  width: 400px;
-  height: 256px;
+  width: 90vw;
+  height: 28vh;
   border: none;
   outline: none;
   resize: none;

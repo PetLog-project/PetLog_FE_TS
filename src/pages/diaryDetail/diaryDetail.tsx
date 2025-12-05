@@ -32,7 +32,7 @@ export function DiaryDetail() {
       <BackButton>{diaryDate}</BackButton>
       <s.DiarySection>
         {diaryDetail.images.length !== 0 && (
-          <Carousel imgs={diaryDetail.images} width={400} />
+          <Carousel imgs={diaryDetail.images} width={"detail"} />
         )}
         <section>
           <s.TitleBox>

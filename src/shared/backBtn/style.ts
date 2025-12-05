@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const BackBtn = styled.div`
-  gap: 12px;
-  padding: 20px 32px;
+  gap: 3vw;
+  padding: 5vw 8vw;
   width: 100%;
-  height: 60px;
+  height: 6vh;
   display: flex;
   align-items: center;
   position: fixed;

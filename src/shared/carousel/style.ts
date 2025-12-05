@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
-export const Img = styled.img<{ $width: number }>`
-  width: ${({ $width }) => $width}px;
-  height: ${({ $width }) => $width}px;
+export const Img = styled.img<{ $width: string }>`
+  width: ${({ $width }) => ($width == "add" ? "50vw" : "100%")};
+  height: ${({ $width }) => ($width == "add" ? "50vw" : "100%")};
+  max-width: 400px;
+  max-height: 400px;
   border-radius: 20px;
   cursor: pointer;
 `;
 
-export const Embla = styled.section<{ $width: number }>`
-  width: ${({ $width }) => $width}px;
-
+export const Embla = styled.section<{ $width: string }>`
+  width: ${({ $width }) => ($width == "add" ? "50vw" : "100%")};
+  max-width: 400px;
   border-radius: 20px;
   --slide-height: 19rem;
   --slide-spacing: 1rem;
@@ -34,8 +36,8 @@ export const EmblaSlide = styled.div`
 `;
 
 export const BtnBox = styled.div`
-  margin-top: 28px;
-  gap: 8px;
+  margin-top: 7vw;
+  gap: 2vw;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -45,8 +47,8 @@ export const DotBtn = styled.button<{
   $currentIdx: number;
   $selectIdx: number;
 }>`
-  width: 10px;
-  height: 10px;
+  width: 1vh;
+  height: 1vh;
   border: none;
   border-radius: 10px;
   background-color: ${({ theme, $currentIdx, $selectIdx }) =>
