@@ -1,11 +1,6 @@
 import { useNative } from "../store/wkwebviewStore";
 
-export type Routes =
-  | "/diary"
-  | "/setting"
-  | "/start"
-  | "/설정 안됨"
-  | "/설정 안됨2";
+export type Routes = "/diary" | "/setting" | "/start" | "/설정 안됨";
 
 export type SwiftToReactProtocolType = {
   nativeRoute: Routes;
