@@ -53,7 +53,6 @@ export function Setting() {
   return (
     <s.Main>
       <BackButton>설정</BackButton>
-
       <s.Ul>
         <s.Li>
           <p>알림 수신 여부</p>
