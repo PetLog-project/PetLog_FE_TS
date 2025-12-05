@@ -8,9 +8,9 @@ export const Main = styled.main`
 `;
 
 export const Ul = styled.ul`
-  margin-top: 60px;
-  padding: 20px 32px 0 32px;
-  gap: 32px;
+  margin-top: 6vh;
+  padding: 5vw 8vw 0 8vw;
+  gap: 3vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -18,7 +18,7 @@ export const Ul = styled.ul`
 
 export const Li = styled.li`
   width: 100%;
-  height: 30px;
+  height: 12vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -31,9 +31,9 @@ export const Li = styled.li`
 `;
 
 export const Toggle = styled.div<{ $toggle: boolean }>`
-  padding: 0 5px;
-  width: 72px;
-  height: 30px;
+  padding: 0 1vw;
+  width: 17vw;
+  height: 7vw;
   border: 1px solid ${({ theme }) => theme.color.black};
   border-radius: 20px;
   display: flex;
@@ -44,8 +44,8 @@ export const Toggle = styled.div<{ $toggle: boolean }>`
 `;
 
 export const ToggleBtn = styled.div`
-  width: 20px;
-  height: 20px;
+  width: 5vw;
+  height: 5vw;
   border: 1px solid ${({ theme }) => theme.color.black};
   border-radius: 20px;
   background-color: ${({ theme }) => theme.color.white};
@@ -53,8 +53,8 @@ export const ToggleBtn = styled.div`
 `;
 
 export const WithdrawBox = styled.p`
-  padding: 0 32px;
-  margin-top: 72px;
+  padding: 0 8vw;
+  margin-top: 8vh;
   color: ${({ theme }) => theme.color.red};
   font-size: ${({ theme }) => theme.font.heading_M};
   font-weight: ${({ theme }) => theme.font.weightSemiBold};

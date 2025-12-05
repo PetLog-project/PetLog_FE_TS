@@ -42,11 +42,10 @@ export function AddContent() {
   return (
     <s.Main>
       <BackButton>{""}</BackButton>
-
       <s.ContentSection>
-        {imgs.length !== 0 && <Carousel imgs={previewImgs} width={200} />}
+        {imgs.length !== 0 && <Carousel imgs={previewImgs} width={"add"} />}
         <s.TitleBox>
-          <s.Div>
+          <s.TitleDiv>
             <s.Title
               type="text"
               placeholder={
@@ -80,7 +79,7 @@ export function AddContent() {
                 calendarRef.current?.showPicker();
               }}
             />
-          </s.Div>
+          </s.TitleDiv>
           <s.Date>{dateToString(date)}</s.Date>
         </s.TitleBox>
         <s.Content

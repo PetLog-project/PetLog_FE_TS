@@ -21,22 +21,24 @@ export function CycleInput(props: Props) {
         </s.Description>
       </s.InputInfoBox>
       <s.TimeBox>
-        <s.Input
-          type="text"
-          maxLength={2}
-          onChange={(e) => {
-            const value = Number(e.target.value);
-            handleForm(key, value, setForm);
-            handleOnChange(key, value, setDisabled);
-          }}
-        />
-        <span>시간</span>
+        <s.TimeDiv>
+          <s.Input
+            type="text"
+            maxLength={2}
+            onChange={(e) => {
+              const value = Number(e.target.value);
+              handleForm(key, value, setForm);
+              handleOnChange(key, value, setDisabled);
+            }}
+          />
+          <span>시간</span>
+        </s.TimeDiv>
+        {disabled[key] && (
+          <s.WarningMassage>
+            해당 항목은 비워두거나 한글을 입력할 수 없습니다
+          </s.WarningMassage>
+        )}
       </s.TimeBox>
-      {disabled[key] && (
-        <s.WarningMassage>
-          해당 항목은 비워두거나 한글을 입력할 수 없습니다
-        </s.WarningMassage>
-      )}
     </s.InputBox>
   );
 }

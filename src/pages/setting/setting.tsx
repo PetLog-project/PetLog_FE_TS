@@ -62,8 +62,8 @@ export function Setting() {
               if (!accessToken) {
                 return;
               }
-              setNotification(!toggle, accessToken);
               setToggle((prev) => !prev);
+              setNotification(!toggle, accessToken);
             }}
           >
             <s.ToggleBtn></s.ToggleBtn>

@@ -10,8 +10,8 @@ export const Main = styled.main`
 `;
 
 export const CodeSection = styled.section`
-  width: 32px 12px;
-  gap: 60px;
+  width: 8vw 3vw;
+  gap: 15vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -25,16 +25,16 @@ export const Title = styled.p`
 `;
 
 export const InputBox = styled.div`
-  gap: 12px;
+  gap: 3vw;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const Input = styled.input`
-  padding: 8px;
-  width: 260px;
-  height: 64px;
+  padding: 2vw;
+  width: 60vw;
+  height: 16vw;
   border: 1px solid ${({ theme }) => theme.color.black};
   border-radius: 10px;
   outline: none;

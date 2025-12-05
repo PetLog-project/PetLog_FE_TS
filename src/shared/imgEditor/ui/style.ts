@@ -2,15 +2,21 @@ import { GetIcon } from "@/shared/getIcon/getIcon";
 import styled from "styled-components";
 
 export const AddImgBox = styled.div`
-  gap: 24px;
-  width: 368px;
+  width: 83vw;
+  display: flex;
+  justify-content: center;
+`;
+
+export const SortDiv = styled.div`
+  gap: 5vw;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
 `;
 
 export const EmptyImg = styled.div`
-  width: 172px;
-  height: 172px;
+  width: 39vw;
+  height: 39vw;
   border: 5px dotted ${({ theme }) => theme.color.gray_4};
   border-radius: 30px;
   display: flex;
@@ -24,8 +30,8 @@ export const InputFile = styled.input`
 `;
 
 export const ImgBox = styled.div`
-  width: 172px;
-  height: 172px;
+  width: 39vw;
+  height: 39vw;
   border-radius: 30px;
   position: relative;
 `;
@@ -38,7 +44,7 @@ export const Img = styled.img`
 
 export const DeleteBtn = styled(GetIcon)`
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 2vh;
+  right: 2vh;
   cursor: pointer;
 `;

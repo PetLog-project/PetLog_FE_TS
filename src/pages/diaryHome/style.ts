@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const Main = styled.main`
-  padding-bottom: 40px;
+  padding-bottom: 4vh;
   width: 100%;
   min-height: 100vh;
   height: 100%;
@@ -10,9 +10,9 @@ export const Main = styled.main`
 `;
 
 export const Diarysection = styled.section`
-  margin-top: 60px;
-  gap: 20px;
-  padding: 20px;
+  margin-top: 6vh;
+  gap: 2vh;
+  padding: 5vw;
   width: 100%;
   height: 100%;
   display: flex;
@@ -33,26 +33,26 @@ export const EmptyTextDiv = styled.div`
 `;
 
 export const DiariesByDate = styled.section`
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
 `;
 
 export const Date = styled.p`
-  margin-bottom: 20px;
+  margin-bottom: 2vh;
   color: ${({ theme }) => theme.color.gray_4};
   font-size: ${({ theme }) => theme.font.heading_M};
   font-weight: ${({ theme }) => theme.font.weightSemiBold};
 `;
 
 export const ThumbnailBox = styled.div`
-  gap: 20px;
-  width: 364px;
+  gap: 5vw;
+  width: 83vw;
   display: flex;
   flex-wrap: wrap;
 `;
 
 export const Thumbnail = styled.div`
-  width: 172px;
-  height: 172px;
+  width: 39vw;
+  height: 39vw;
   border-radius: 20px;
   position: relative;
   cursor: pointer;
@@ -60,8 +60,8 @@ export const Thumbnail = styled.div`
 
 export const Title = styled.p`
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 2vh;
+  left: 4vw;
   z-index: 2;
 
   color: ${({ theme }) => theme.color.white};
@@ -70,8 +70,8 @@ export const Title = styled.p`
 `;
 
 export const ImgBox = styled.div`
-  width: 172px;
-  height: 172px;
+  width: 39vw;
+  height: 39vw;
   border-radius: 20px;
   position: relative;
 
@@ -93,8 +93,8 @@ export const ThumbnailImg = styled.img`
 `;
 
 export const DefaultImg = styled.div`
-  width: 172px;
-  height: 172px;
+  width: 39vw;
+  height: 39vw;
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -103,8 +103,8 @@ export const DefaultImg = styled.div`
 `;
 
 export const PlusBtn = styled.div`
-  width: 70px;
-  height: 70px;
+  width: 17vw;
+  height: 17vw;
   border-radius: 100%;
   display: flex;
   justify-content: center;
@@ -120,7 +120,7 @@ export const PlusBtn = styled.div`
 
 export const EmptyDiary = styled.div`
   margin-top: 50%;
-  gap: 20px;
+  gap: 5vw;
   width: 100%;
   height: 100%;
   display: flex;
